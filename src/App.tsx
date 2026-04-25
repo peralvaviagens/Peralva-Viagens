@@ -199,7 +199,7 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl md:text-5xl lg:text-6xl text-[#A17C4F] font-serif mb-8 leading-[1.15] tracking-tight"
+              className="text-xl md:text-3xl lg:text-4xl text-[#A17C4F] font-cinzel mb-8 leading-[1.15] tracking-tight"
             >
               Viagens que começam com um sonho e terminam em <span className="italic font-normal">memórias inesquecíveis</span>
             </motion.h1>
@@ -207,7 +207,7 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[#A17C4F]/70 text-xs md:text-sm lg:text-base uppercase tracking-[0.4em] mb-12 max-w-2xl mx-auto font-semibold"
+              className="text-[#A17C4F]/70 text-xs md:text-sm lg:text-base uppercase tracking-[0.2em] mb-12 max-w-2xl mx-auto font-semibold"
             >
               Pacotes nacionais e internacionais + roteiros exclusivos para casamentos
             </motion.p>
