@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  --color-gold-strong: #8C6A3F;
+  --color-gold-weak: #D8BB8F;
+  --color-paper: #F9F7F4;
+  --color-ink: #2D2418;
+  --color-gold-border: rgba(140, 106, 63, 0.2);
+  --color-hero-grey: #9C9791;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-ink bg-paper;
+  }
+  
+  h1, h2, h3, h4, .font-serif {
+    @apply font-serif;
+  }
+}
+
+.gold-text {
+  @apply text-gold-strong;
+}
+
+.gold-bg {
+  @apply bg-linear-to-r from-gold-strong to-gold-weak;
+}
+
+.glass-card {
+  @apply bg-white/50 backdrop-blur-sm border border-gold-border shadow-sm;
+}
+
+.btn-pill {
+  @apply border border-gold-strong rounded-full px-6 py-2 transition-all duration-300 hover:bg-gold-strong hover:text-white uppercase tracking-widest text-[11px] font-semibold;
+}
+
+.app-frame {
+  @apply border-[8px] md:border-[12px] border-white min-h-screen flex flex-col;
+}
