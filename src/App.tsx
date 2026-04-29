@@ -53,7 +53,7 @@ const PACKAGES = [
 const NAV_LINKS = [
   { name: 'Início', href: '#inicio', icon: Home },
   { name: 'Quem Somos', href: '#quem-somos', icon: Users },
-  { name: 'Serviços', href: '#pacotes', icon: Briefcase },
+  { name: 'Pacotes', href: '#pacotes', icon: Briefcase },
   { name: 'Casamentos', href: '#casamentos', icon: Heart },
   { name: 'Blog', href: '#blog', icon: BookOpen },
 ];
@@ -98,17 +98,17 @@ const Navbar = () => {
           <img 
             src="https://lh3.googleusercontent.com/d/1oNtsRcQJ5bFfChIHy5GTtFweCbJbdwaD" 
             alt="Peralva Viagens Logo" 
-            className="h-10 w-auto md:h-12 object-contain"
+            className={`h-10 w-auto md:h-12 object-contain transition-all ${!isScrolled && 'brightness-0 invert opacity-90'}`}
           />
         </div>
         
         {/* Desktop Menu */}
-        <div className={`hidden lg:flex gap-8 text-[11px] font-semibold uppercase tracking-widest ${isScrolled ? 'text-ink' : 'text-[#A17C4F]'}`}>
+        <div className={`hidden lg:flex gap-8 text-[11px] font-semibold uppercase tracking-widest ${isScrolled ? 'text-ink' : 'text-white'}`}>
           {NAV_LINKS.map((link) => (
             <a 
               key={link.name} 
               href={link.href} 
-              className="hover:text-gold-strong transition-colors flex items-center gap-2"
+              className="hover:text-gold-weak transition-colors flex items-center gap-2"
             >
               <link.icon size={14} className="opacity-70" />
               {link.name}
@@ -117,12 +117,12 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="#contato" className={`hidden lg:flex items-center justify-center btn-pill h-10 ${isScrolled ? 'text-ink' : 'text-[#A17C4F] border-[#A17C4F] hover:bg-[#A17C4F] hover:text-white'}`}>
+          <a href="#contato" className={`hidden lg:flex items-center justify-center btn-pill h-10 ${isScrolled ? 'text-ink' : 'text-white border-white hover:bg-white hover:text-ink'}`}>
             Planeje sua Viagem
           </a>
           
           <button className="lg:hidden cursor-pointer" onClick={() => setMobileMenuOpen(true)}>
-            <Menu className={isScrolled ? 'text-ink' : 'text-[#A17C4F]'} />
+            <Menu className={isScrolled ? 'text-ink' : 'text-white'} />
           </button>
         </div>
       </div>
@@ -194,20 +194,32 @@ export default function App() {
 
         {/* --- HERO SECTION --- */}
         <section id="inicio" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-paper">
+          {/* Background Image with Dark Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=2000" 
+              alt="Deslumbrante paisagem de viagem" 
+              className="w-full h-full object-cover"
+            />
+            {/* Dark gradient overlay for elegance and contrast */}
+            <div className="absolute inset-0 bg-ink/75 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/40" />
+          </div>
+
           <div className="relative z-10 text-center px-6 max-w-5xl">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-xl md:text-3xl lg:text-4xl text-[#A17C4F] font-cinzel mb-8 leading-[1.15] tracking-tight"
+              className="text-xl md:text-3xl lg:text-5xl text-white font-cinzel mb-8 leading-[1.15] tracking-tight"
             >
-              Viagens que começam com um sonho e terminam em <span className="italic font-normal">memórias inesquecíveis</span>
+              Viagens que começam com um sonho e terminam em <span className="text-gold-weak italic font-normal">memórias inesquecíveis</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[#A17C4F]/70 text-xs md:text-sm lg:text-base uppercase tracking-[0.2em] mb-12 max-w-2xl mx-auto font-semibold"
+              className="text-white/80 text-xs md:text-sm lg:text-base uppercase tracking-[0.2em] mb-12 max-w-2xl mx-auto font-semibold"
             >
               Pacotes nacionais e internacionais + roteiros exclusivos para casamentos
             </motion.p>
@@ -217,10 +229,10 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center"
             >
-              <a href="#contato" className="px-8 md:px-12 py-5 bg-[#A17C4F] text-white rounded-none font-bold tracking-widest text-[11px] uppercase shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <a href="#contato" className="px-8 md:px-12 py-5 bg-gold-strong text-white rounded-none font-bold tracking-widest text-[11px] uppercase shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-2 cursor-pointer border border-gold-strong">
                 Planeje sua Viagem <ChevronRight size={14} />
               </a>
-              <a href="#pacotes" className="px-8 md:px-12 py-5 bg-transparent border border-[#A17C4F]/40 text-[#A17C4F] rounded-none font-bold tracking-widest text-[11px] uppercase hover:bg-[#A17C4F]/5 transition-all cursor-pointer">
+              <a href="#pacotes" className="px-8 md:px-12 py-5 bg-transparent border border-white/40 text-white rounded-none font-bold tracking-widest text-[11px] uppercase hover:bg-white/10 transition-all cursor-pointer">
                 Conheça nossos destinos
               </a>
             </motion.div>
