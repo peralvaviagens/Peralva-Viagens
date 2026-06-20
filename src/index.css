@@ -12,6 +12,13 @@
   --color-ink: #2D2418;
   --color-gold-border: rgba(140, 106, 63, 0.2);
   --color-hero-grey: #9C9791;
+
+  /* Increase font sizes slightly for better readability across all devices */
+  --text-xs: 0.8125rem; /* ~13px */
+  --text-sm: 0.9375rem; /* ~15px */
+  --text-base: 1.0625rem; /* ~17px */
+  --text-lg: 1.1875rem; /* ~19px */
+  --text-xl: 1.3125rem; /* ~21px */
 }
 
 @layer base {
