@@ -37,10 +37,10 @@ const SERVICES = [
 
 const NAV_LINKS = [
   { name: 'Início', href: '#inicio', icon: Home },
-  { name: 'Quem Somos', href: '#quem-somos', icon: Users },
-  { name: 'Depoimentos', href: '#depoimentos', icon: Star },
   { name: 'Casamentos', href: '#casamentos', icon: Heart },
+  { name: 'Quem Somos', href: '#quem-somos', icon: Users },
   { name: 'Novidades', href: '#novidades', icon: BookOpen },
+  { name: 'Depoimentos', href: '#depoimentos', icon: Star },
 ];
 
 const BLOG_POSTS = [
@@ -247,6 +247,7 @@ export default function App() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentPage, setCurrentPage] = useState<'home' | 'wedding'>('home');
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const handleNavigation = (target: 'home' | 'wedding', hash?: string) => {
     setCurrentPage(target);
@@ -347,7 +348,7 @@ export default function App() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-white/80 text-xs md:text-sm lg:text-base uppercase tracking-[0.2em] mb-12 max-w-2xl mx-auto font-semibold"
                 >
-                  Pacotes nacionais e internacionais + roteiros exclusivos para casamentos
+                  Destination Wedding + Viagens Nacionais e internacionais
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -513,14 +514,36 @@ export default function App() {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-[4/5] rounded-[15px] overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&q=80&w=800" 
-                alt="Experience" 
-                className="w-full h-full object-cover"
-              />
+            <div className="aspect-[4/5] rounded-[15px] overflow-hidden shadow-2xl bg-black group relative">
+              {!isVideoPlaying ? (
+                <div 
+                  className="absolute inset-0 z-10 flex items-center justify-center cursor-pointer" 
+                  onClick={() => setIsVideoPlaying(true)}
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&q=80&w=800" 
+                    alt="Experience Poster" 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/50" />
+                  
+                  {/* Glowing, elegant gold play button in the center */}
+                  <div className="relative z-20 flex items-center justify-center w-20 h-20 rounded-full bg-gold-strong text-white shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 translate-x-0.5">
+                      <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                <iframe 
+                  src="https://drive.google.com/file/d/1UQo_7XF_XyeQq7PV77r4ffbW1Gr0Ek-E/preview?autoplay=1" 
+                  className="w-full h-full border-none"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                />
+              )}
             </div>
-            <div className="absolute -bottom-8 -left-8 p-10 gold-bg rounded-[15px] shadow-xl text-white hidden lg:block">
+            <div className="absolute -bottom-8 -left-8 p-10 gold-bg rounded-[15px] shadow-xl text-white hidden lg:block z-25">
               <p className="text-3xl font-serif mb-1 italic">+10 anos</p>
               <p className="text-xs font-bold tracking-widest uppercase">Criando memórias</p>
             </div>
@@ -577,7 +600,7 @@ export default function App() {
       <section id="sobre-lidiane" className="py-24 bg-paper border-t border-b border-gold-border/40">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-white border border-gold-border rounded-[15px] overflow-hidden shadow-sm p-8 md:p-16 lg:p-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
               {/* Photo Column */}
               <div className="lg:col-span-5 relative order-last lg:order-first">
                 <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden shadow-2xl border-4 border-white bg-white/50">
@@ -599,22 +622,28 @@ export default function App() {
               <div className="lg:col-span-7 flex flex-col justify-center">
                 <SectionHeader 
                   title="Sobre Lidiane"
-                  highlight="Assessoria & Viagens"
+                  highlight="Especialista em Destination Wedding"
                   center={false}
                 />
                 
                 <div className="space-y-6 text-ink/80 text-sm md:text-base leading-relaxed font-sans -mt-8">
                   <p className="font-semibold text-ink text-base md:text-lg font-serif italic text-gold-strong mb-4">
-                    Lidiane Peralva é agente de viagem, produtora e organizadora de casamentos nos resorts e hotéis mais desejados do Litoral Norte da Bahia (Linha Verde) e em outros cenários encantadores da Bahia.
+                    Lidiane Peralva é Agente de Viagens, produtora de Eventos e assessora de casamentos sendo referëncia nos resorts e hotéis mais desejados do Litoral Norte da Bahia (Linha Verde) e em outros cenários encantadores da Bahia.
                   </p>
                   <p>
-                    Sou formada em Turismo e Hotelaria com MBA em Marketing, o que me permite unir conhecimento técnico, visão estratégica e sensibilidade para criar experiências únicas e inesquecíveis.
+                    Formada em Turismo e Hotelaria, com MBA em Marketing, une conhecimento técnico, visão estratégica e sensibilidade para transformar sonhos em experiências únicas e inesquecíveis.
                   </p>
                   <p>
-                    Ao longo dos anos, construí uma trajetória sólida com noivos do Brasil e do mundo, oferecendo também minha agência de viagens exclusiva, que facilita toda a jornada do casal e dos convidados, do embarque ao retorno, com cuidado e acolhimento.
+                    Ao longo dos anos, construiu uma trajetória sólida atendendo noivos do Brasil e do exterior. Foi dessa experiência que nasceu a Peralva Viagens, agência especializada que complementa sua assessoria e oferece um atendimento completo para casais e convidados.
+                  </p>
+                  <p>
+                    Como agência oficial dos casamentos que assessora, a Peralva Viagens é responsável por toda a jornada da hospedagem e da viagem dos convidados, oferecendo suporte nas reservas, informações, logística e atendimento personalizado, do embarque ao retorno.
+                  </p>
+                  <p>
+                    Assim, enquanto o casal vive cada etapa do planejamento com tranquilidade, os convidados também contam com um atendimento exclusivo, garantindo uma experiência organizada, segura e acolhedora desde o primeiro contato até o fim da celebração.
                   </p>
                   <p className="border-l-4 border-gold-strong pl-6 py-4 italic text-ink/90 font-serif text-base md:text-lg bg-paper rounded-r-[15px] pr-4 shadow-sm">
-                    "Mais do que planejar um casamento, estou aqui para garantir que vocês vivam esse sonho com leveza, segurança e alegria, desde o primeiro contato até o último pôr do sol da viagem."
+                    “Mais do que planejar um casamento, estou aqui para garantir que vocês vivam esse sonho com leveza, segurança e alegria, desde o primeiro contato até o último pôr do sol da viagem.”
                   </p>
                 </div>
 
