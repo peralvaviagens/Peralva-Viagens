@@ -48,7 +48,7 @@
 }
 
 .btn-pill {
-  @apply border border-gold-strong rounded-full px-6 py-2 transition-all duration-300 hover:bg-gold-strong hover:text-white uppercase tracking-widest text-[11px] font-semibold;
+  @apply border border-gold-strong rounded-[15px] px-6 py-2 transition-all duration-300 hover:bg-gold-strong hover:text-white uppercase tracking-widest text-[11px] font-semibold;
 }
 
 .app-frame {
