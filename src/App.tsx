@@ -66,34 +66,29 @@ const BLOG_POSTS = [
 
 const WEDDING_DESTINATIONS = [
   {
-    name: 'Tivoli Ecoresort Praia do Forte',
-    location: 'Praia do Forte, Bahia',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600'
+    name: 'Grand Palladium',
+    location: 'Imbassaí, BA',
+    image: 'https://lh3.googleusercontent.com/d/1LzzgtDWIOYigU09Dg0sWn6hO2PxeRjgd'
   },
   {
     name: 'Iberostar Selection',
-    location: 'Praia do Forte, Bahia',
-    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=600'
+    location: 'Praia do Forte, BA',
+    image: 'https://lh3.googleusercontent.com/d/1qHccjUP1RYzupeeX8UbRh7LRWc8R2TkC'
   },
   {
-    name: 'Grand Palladium Imbassaí',
-    location: 'Imbassaí, Bahia',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600'
+    name: 'Vila Galá Marés',
+    location: 'Camaçari, BA',
+    image: 'https://lh3.googleusercontent.com/d/1V3Q95RCzbGTxN3KpehjStkgm1mNNIiAn'
   },
   {
-    name: 'Txai Resort Itacaré',
-    location: 'Itacaré, Bahia',
-    image: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=600'
+    name: 'Costa do Sauipe',
+    location: 'Sauipe, BA',
+    image: 'https://static.wixstatic.com/media/4de30d_04919a0866e64cf5809144e0b2959003~mv2.jpg/v1/crop/x_0,y_100,w_3000,h_1489/fill/w_1056,h_524,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Fachada%20Terra%20Melhorada_edited.jpg'
   },
   {
-    name: 'Transamerica Comandatuba',
-    location: 'Ilha de Comandatuba, Bahia',
-    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600'
-  },
-  {
-    name: "Arraial d'Ajuda Eco Resort",
-    location: "Arraial d'Ajuda, Bahia",
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600'
+    name: 'Tivoli Ecoresort',
+    location: 'Praia do Forte, BA',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHQDOsDRRiWads8cHHmZQQdULBsVr8QZa7wFSnig6c1rAiD5NvOO5p4ZqtpxUdNkErL9PjGUXbkR9UwzT9HRU3TOZuPMn3kL0T_u9-IkaSsHfgwlJEvbFpRjj82n6l8uCd7uNAp=s1360-w1360-h1020-rw'
   }
 ];
 
@@ -264,7 +259,7 @@ export default function App() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+      setCurrentSlide((prev) => (prev === 2 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -287,7 +282,7 @@ export default function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const totalResorts = 6;
+  const totalResorts = 5;
 
   const nextResortSlide = () => {
     setCurrentResortIndex((prev) => {
@@ -303,6 +298,16 @@ export default function App() {
     });
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentResortIndex((prev) => {
+        const maxIndex = 5 - visibleResorts;
+        return prev >= maxIndex ? 0 : prev + 1;
+      });
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [visibleResorts]);
+
   return (
     <div className="relative overflow-x-hidden min-h-screen bg-paper">
       <div className="min-h-screen flex flex-col">
@@ -316,17 +321,26 @@ export default function App() {
             <section id="inicio" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-paper">
               {/* Background Images with Fade effect */}
               <div className="absolute inset-0 z-0">
-                {/* Slide 1: Viagem inesquecível */}
+                {/* Slide 1 */}
                 <img 
-                  src="https://lh3.googleusercontent.com/d/1gnHrffFVyQA40lhoWOoCBGMIR6VAoDRx" 
-                  alt="Viagem Inesquecível" 
+                  src="https://lh3.googleusercontent.com/d/1eUzlCuvyEylKqvw-84nhRZvgmUCc30_N" 
+                  alt="Slide 1" 
                   className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${currentSlide === 0 ? 'opacity-100' : 'opacity-0'}`}
+                  referrerPolicy="no-referrer"
                 />
-                {/* Slide 2: Noivos recém-casados */}
+                {/* Slide 2 */}
                 <img 
-                  src="https://lh3.googleusercontent.com/d/1D2y6N7hcC3O6YeT8Zcc_A92Kf748o9_9" 
-                  alt="Noivos Recém-Casados" 
+                  src="https://lh3.googleusercontent.com/d/1KgjlFp9wZbgXbejXP5j0LqCOnQi7IBOw" 
+                  alt="Slide 2" 
                   className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${currentSlide === 1 ? 'opacity-100' : 'opacity-0'}`}
+                  referrerPolicy="no-referrer"
+                />
+                {/* Slide 3 */}
+                <img 
+                  src="https://lh3.googleusercontent.com/d/14OxvW2QJutKtqcknxmXqfHqnOH33a-1a" 
+                  alt="Slide 3" 
+                  className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${currentSlide === 2 ? 'opacity-100' : 'opacity-0'}`}
+                  referrerPolicy="no-referrer"
                 />
                 {/* Dark gradient overlay for elegance and contrast */}
                 <div className="absolute inset-0 bg-ink/75 mix-blend-multiply" />
@@ -404,9 +418,10 @@ export default function App() {
               </div>
               <div className="relative h-[400px] lg:h-auto overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200" 
+                  src="https://lh3.googleusercontent.com/d/1rwtYNO2fT3OPX--09fdR73zyGOJH7frl" 
                   alt="Wedding" 
                   className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
                 />
               </div>
             </div>
@@ -457,6 +472,7 @@ export default function App() {
                             src={dest.image} 
                             alt={dest.name} 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            referrerPolicy="no-referrer"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
@@ -514,7 +530,7 @@ export default function App() {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-[4/5] rounded-[15px] overflow-hidden shadow-2xl bg-black group relative">
+            <div className="aspect-[9/16] max-w-sm mx-auto rounded-[15px] overflow-hidden shadow-2xl bg-black group relative">
               {!isVideoPlaying ? (
                 <div 
                   className="absolute inset-0 z-10 flex items-center justify-center cursor-pointer" 
@@ -536,14 +552,14 @@ export default function App() {
                 </div>
               ) : (
                 <iframe 
-                  src="https://drive.google.com/file/d/1UQo_7XF_XyeQq7PV77r4ffbW1Gr0Ek-E/preview?autoplay=1" 
+                  src="https://drive.google.com/file/d/1hK5mIXEygyHclGHFCvxXRYopDQRkjWrW/preview?autoplay=1" 
                   className="w-full h-full border-none"
                   allow="autoplay; encrypted-media"
                   allowFullScreen
                 />
               )}
             </div>
-            <div className="absolute -bottom-8 -left-8 p-10 gold-bg rounded-[15px] shadow-xl text-white hidden lg:block z-25">
+            <div className="absolute -bottom-8 -left-8 lg:left-8 p-10 gold-bg rounded-[15px] shadow-xl text-white hidden lg:block z-25">
               <p className="text-3xl font-serif mb-1 italic">+10 anos</p>
               <p className="text-xs font-bold tracking-widest uppercase">Criando memórias</p>
             </div>
@@ -559,18 +575,30 @@ export default function App() {
 
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <SectionHeader 
-            title="A Peralva Viagens nasceu com o propósito de transformar viagens em experiências únicas."
+            title="Mais do que vender viagens, criamos experiências planejadas com excelência."
             highlight="Quem Somos"
           />
           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-16 max-w-3xl mx-auto font-sans">
-            Com expertise em turismo nacional e internacional, oferecemos atendimento personalizado e cuidamos de cada etapa do seu planejamento — desde a escolha do destino até o seu retorno.
+            Com mais de 20 anos de experiência em turismo e hotelaria, planejamos viagens de lazer, lua de mel e casamentos em destinos exclusivos. Nossa missão é transformar cada projeto em uma experiência única, com atendimento personalizado, suporte completo e cuidado de quem conhece cada detalhe.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
-              { title: 'Atendimento Próximo', icon: Phone, desc: 'Suporte humanizado em todas as etapas.' },
-              { title: 'Roteiros sob Medida', icon: MapPin, desc: 'Planejamento exclusivo para seu perfil.' },
-              { title: 'Parcerias Confiáveis', icon: Globe, desc: 'Curadoria dos melhores parceiros globais.' },
+              { 
+                title: 'Atendimento Próximo', 
+                icon: Phone, 
+                desc: 'Você fala diretamente com quem cuida da sua viagem.\n\nAcompanhamento humanizado antes, durante e após a viagem, oferecendo suporte sempre que você precisar.' 
+              },
+              { 
+                title: 'Roteiros sob Medida', 
+                icon: MapPin, 
+                desc: 'Cada viagem é única, porque cada viajante também é.\n\nCriamos roteiros personalizados de acordo com o seu perfil, objetivos e estilo de viagem, transformando desejos em experiências memoráveis.' 
+              },
+              { 
+                title: 'Parcerias Confiáveis', 
+                icon: Globe, 
+                desc: 'Os melhores parceiros para a sua tranquilidade.\n\nTrabalhamos com operadoras, hotéis, resorts e fornecedores cuidadosamente selecionados para oferecer qualidade, segurança e as melhores condições para cada viagem.' 
+              },
             ].map((d, idx) => (
               <div 
                 key={idx} 
@@ -587,7 +615,7 @@ export default function App() {
                   {d.title}
                 </h4>
                 
-                <p className="text-gray-600 text-[14px] leading-relaxed max-w-[240px]">
+                <p className="text-gray-600 text-[14px] leading-relaxed max-w-[280px] whitespace-pre-line">
                   {d.desc}
                 </p>
               </div>

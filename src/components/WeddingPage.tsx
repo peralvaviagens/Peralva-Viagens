@@ -15,40 +15,34 @@ import {
 
 const RESORTS = [
   {
-    name: 'Tivoli Ecoresort Praia do Forte',
-    location: 'Praia do Forte, Bahia',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600',
-    description: 'Um dos ecoresorts mais sofisticados do Brasil, ideal para casamentos elegantes com muito contato com a natureza e coqueirais deslumbrantes.'
+    name: 'Grand Palladium',
+    location: 'Imbassaí, BA',
+    image: 'https://lh3.googleusercontent.com/d/1LzzgtDWIOYigU09Dg0sWn6hO2PxeRjgd',
+    description: 'Localizado na exuberante reserva de Imbassaí, oferece harmonia perfeita entre dunas, rio e mar com serviços de alta gastronomia, conforto e exclusividade.'
   },
   {
     name: 'Iberostar Selection',
-    location: 'Praia do Forte, Bahia',
-    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=600',
+    location: 'Praia do Forte, BA',
+    image: 'https://lh3.googleusercontent.com/d/1qHccjUP1RYzupeeX8UbRh7LRWc8R2TkC',
     description: 'Serviço All-Inclusive cinco estrelas com estrutura de lazer completa e cenários incríveis de frente para as praias preservadas baianas.'
   },
   {
-    name: 'Grand Palladium Imbassaí',
-    location: 'Imbassaí, Bahia',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600',
-    description: 'Localizado na exuberante reserva de Imbassaí, oferece harmonia perfeita entre dunas, rio e mar com serviços de alta gastronomia e conforto.'
+    name: 'Vila Galá Marés',
+    location: 'Camaçari, BA',
+    image: 'https://lh3.googleusercontent.com/d/1V3Q95RCzbGTxN3KpehjStkgm1mNNIiAn',
+    description: 'Localizado na deslumbrante praia de Guarajuba, oferece arquitetura integrada à natureza com imensa piscina e sofisticação para sua celebração.'
   },
   {
-    name: 'Txai Resort Itacaré',
-    location: 'Itacaré, Bahia',
-    image: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=600',
-    description: 'Símbolo de luxo ecológico e privacidade na Bahia. Perfeito para noivos que buscam um casamento sofisticado, intimista e autêntico.'
+    name: 'Costa do Sauipe',
+    location: 'Sauipe, BA',
+    image: 'https://static.wixstatic.com/media/4de30d_04919a0866e64cf5809144e0b2959003~mv2.jpg/v1/crop/x_0,y_100,w_3000,h_1489/fill/w_1056,h_524,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Fachada%20Terra%20Melhorada_edited.jpg',
+    description: 'A megaestrutura de lazer e hospitalidade na Linha Verde. Diversas opções de cenários ao ar livre e praias ideais para receber seus convidados.'
   },
   {
-    name: 'Transamerica Comandatuba',
-    location: 'Ilha de Comandatuba, Bahia',
-    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600',
-    description: 'Uma ilha paradisíaca inteira dedicada à exclusividade. Ampla variedade de espaços ao ar livre e logística facilitada de aeroporto privado.'
-  },
-  {
-    name: "Arraial d'Ajuda Eco Resort",
-    location: "Arraial d'Ajuda, Bahia",
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600',
-    description: 'Cenários paradisíacos à beira-mar com pôr do sol espetacular do Sul da Bahia. Gastronomia refinada e atendimento caloroso.'
+    name: 'Tivoli Ecoresort',
+    location: 'Praia do Forte, BA',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHQDOsDRRiWads8cHHmZQQdULBsVr8QZa7wFSnig6c1rAiD5NvOO5p4ZqtpxUdNkErL9PjGUXbkR9UwzT9HRU3TOZuPMn3kL0T_u9-IkaSsHfgwlJEvbFpRjj82n6l8uCd7uNAp=s1360-w1360-h1020-rw',
+    description: 'Um dos ecoresorts mais sofisticados do Brasil, ideal para casamentos elegantes com muito contato com a natureza e coqueirais deslumbrantes.'
   }
 ];
 
@@ -122,9 +116,10 @@ export default function WeddingPage({ onNavigate }: WeddingPageProps) {
       <section className="relative h-[80vh] min-h-[550px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000" 
+            src="https://lh3.googleusercontent.com/d/1rwtYNO2fT3OPX--09fdR73zyGOJH7frl" 
             alt="Destination Wedding" 
             className="w-full h-full object-cover object-center"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-ink/70 mix-blend-multiply" />
           <div className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/35" />
@@ -198,9 +193,10 @@ export default function WeddingPage({ onNavigate }: WeddingPageProps) {
             <div className="lg:col-span-5 relative">
               <div className="aspect-[3/4] rounded-[20px] overflow-hidden border border-gold-border shadow-lg relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" 
+                  src="https://lh3.googleusercontent.com/d/1rwtYNO2fT3OPX--09fdR73zyGOJH7frl" 
                   alt="Noivos na Praia" 
                   className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
               </div>
@@ -306,6 +302,7 @@ export default function WeddingPage({ onNavigate }: WeddingPageProps) {
                       src={resort.image} 
                       alt={resort.name} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute bottom-4 left-4 bg-ink/85 backdrop-blur-xs text-[10px] text-white px-3 py-1 font-bold tracking-widest uppercase rounded-full">
                       {resort.location}
