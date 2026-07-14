@@ -39,7 +39,6 @@ const NAV_LINKS = [
   { name: 'Início', href: '#inicio', icon: Home },
   { name: 'Casamentos', href: '#casamentos', icon: Heart },
   { name: 'Quem Somos', href: '#quem-somos', icon: Users },
-  { name: 'Novidades', href: '#novidades', icon: BookOpen },
   { name: 'Depoimentos', href: '#depoimentos', icon: Star },
 ];
 
@@ -751,41 +750,6 @@ export default function App() {
                     <p className="text-[9px] text-ink/60">{dep.location}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- NOVIDADES (EX-BLOG) --- */}
-      <section id="novidades" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div className="max-w-lg">
-              <SectionHeader 
-                title="Inspirações para sua próxima viagem"
-                highlight="Novidades"
-                center={false}
-              />
-            </div>
-            <button className="px-8 py-3 bg-gray-900 text-white rounded-[15px] font-bold tracking-widest text-xs uppercase mb-16">
-              VER TODOS
-            </button>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_POSTS.map((post, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                <div className="aspect-[16/10] rounded-[15px] overflow-hidden mb-6">
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-                  />
-                </div>
-                <span className="text-gold-strong text-xs font-bold uppercase tracking-widest mb-3 block">{post.category}</span>
-                <h4 className="text-2xl font-serif leading-snug group-hover:text-gold-strong transition-colors mb-3 text-ink font-semibold">{post.title}</h4>
-                <p className="text-ink/80 text-base leading-relaxed line-clamp-2 font-sans">{post.description}</p>
               </div>
             ))}
           </div>
